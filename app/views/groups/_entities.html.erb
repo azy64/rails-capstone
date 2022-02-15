@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <!--<th colspan="3"></th>-->
+    </tr>
+  </thead>
+
+  <tbody>
+   <% entities.each do |entity| %>
+      <tr>
+        <td><%=entity.name%></td>
+        <td><%= entity.amount, class: "small"%>€</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

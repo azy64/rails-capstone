@@ -1,0 +1,20 @@
+<div class='form-container'>
+<% if flash[:error]%>
+    <span class="alert-danger"><%= flash[:error]%> </span>
+<%end%>
+<%= form_with model:@group, url: groups_path, method: :post do |form|%>
+<div>
+    <%= form.label :name, class: "form-label" %><span class="text-danger">*</span>
+    <%= form.text_field :name, class: "form-control" %>
+</div>
+<div>
+    <%= form.label :icon, class: "form-label" %><span class="text-danger">*</span>
+    <%= form.file_field :icon, class: "form-control" %>
+</div>
+<%= form.submit "Save"%>
+<% end %>
+<div>
+    <%=link_to "<", home_page_path, class: "btn btn-darger"%>
+</div>
+
+</div>

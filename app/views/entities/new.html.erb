@@ -1,0 +1,23 @@
+<div class='form-container'>
+<% if flash[:error]%>
+    <span class="alert-danger"><%= flash[:error]%> </span>
+<%end%>
+<%= form_with model:@entity, url: entities_path, method: :post do |form|%>
+<div>
+    <%= form.label :name, class: "form-label" %><span class="text-danger">*</span>
+    <%= form.text_field :name, class: "form-control" %>
+</div>
+<div>
+    <%= form.label :amount, class: "form-label" %><span class="text-danger">*</span>
+    <%= form.number_field :amount, in: 1..300000 %>
+</div>
+<div>
+    <%= form.collection_select :group, Group.order(:name), :id, :name %>
+</div>
+<%= form.submit "Save"%>
+<% end %>
+<div>
+    <%=link_to "<", home_page_path, class: "btn btn-darger"%>
+</div>
+
+</div>

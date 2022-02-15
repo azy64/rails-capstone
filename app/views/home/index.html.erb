@@ -1,0 +1,9 @@
+<%if flash[:success]%>
+<span class="alert-info"><%=flash[:success]%></span>
+<%end%>
+<div>
+<h1>Hello</h1>
+<%= render partial: 'group', locals: { groups: @groups } %>
+<%=link_to "add a new category", new_group_path, class: "btn btn-primary"%>
+</div>
+

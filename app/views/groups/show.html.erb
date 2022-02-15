@@ -1,0 +1,15 @@
+<div>
+<h1>
+    <%= @group.name%>
+</h1>
+<h3>
+    Total: <%=@sum%>€
+</h3>
+    <%= render partial: 'entities', locals: {entities: @entities}%>
+<div>
+    <%=link_to "add a new transaction", new_group_entity(group_id: @group.id) %>
+</div>
+<div>
+    <%=link_to "<", home_page_path, class: "btn btn-darger"%>
+</div>
+</div>
