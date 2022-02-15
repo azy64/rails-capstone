@@ -7,23 +7,24 @@ class EntitiesController < ApplicationController
     end
   end
 
-  def create; end
+  def create
     @entity = Entity.new(entity_params)
     group = Group.find_by(id: params[:entity][:group])
     @entity.groups.push(group)
     @entity.user = current_user
     @group.entities.push(@entity)
     if @entity.saved
-        flash[:success] = 'The entity has been created successfully!'
-        redirect_to home_page_path
+      flash[:success] = 'The entity has been created successfully!'
+      redirect_to home_page_path
     else
-        flash[:error] = 'Error: The entity has not been created!'
-        render :new
+      flash[:error] = 'Error: The entity has not been created!'
+      render :new
     end
-    
+  end
+
   private
 
   def entity_params
-    params.require(:entity).permit(:name, :amount,:group)
+    params.require(:entity).permit(:name, :amount, :group)
   end
 end
