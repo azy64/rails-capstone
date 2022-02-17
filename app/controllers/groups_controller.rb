@@ -48,6 +48,7 @@ class GroupsController < ApplicationController
     unless File.exist?(File.dirname(Rails.root.join('public', dir_upload, new_name)))
       FileUtils.mkdir_p(File.dirname(Rails.root.join('public', dir_upload, new_name)))
     end
+
     File.open(Rails.root.join('public', 'uploads', new_name), 'wb') do |file|
       file.write(uploaded_file.read)
     end
