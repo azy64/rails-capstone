@@ -49,9 +49,7 @@ class GroupsController < ApplicationController
       FileUtils.mkdir_p(File.dirname(Rails.root.join('public', dir_upload, new_name)))
     end
     tmp = Rails.root.join('public', 'uploads', new_name)
-    File.open(tmp, 'wb') do |file|
-      file.write(uploaded_file.read)
-    end
+    File.binwrite(tmp, uploaded_file.read)
     new_name
   end
 end
