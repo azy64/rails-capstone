@@ -20,7 +20,6 @@ RSpec.feature 'Groups', type: :feature do
 
   scenario 'show group details on page' do
     expect(page).to have_content @group.name
-    # expect(page).to have_content 'ppp.png'
   end
 
   scenario 'show Add Group button on page' do

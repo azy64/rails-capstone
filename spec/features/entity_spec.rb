@@ -22,7 +22,6 @@ RSpec.feature 'Entities', type: :feature do
 
   scenario 'show the transaction\'s amount on page' do
     expect(page).to have_content @entity.amount
-    # expect(page).to have_content 'ppp.png'
   end
 
   scenario 'show the transaction\'s name on page' do

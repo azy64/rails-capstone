@@ -5,7 +5,6 @@ RSpec.describe Entity, type: :model do
     @user = User.create!(name: 'Henry', email: 'henry@gmail.com', password: 'kkkkkk')
     @group = @user.groups.create(name: 'ADIDAS6GROUP', icon: 'grams.png')
     @entity = @group.entities.create(name: 'Chapo', amount: 30.0, user: @user)
-    # @entity = @user.foods.create(name: 'Chapo', measurement_unit: 'grams', price: 150)
     expect(@entity).to be_valid
   end
 
