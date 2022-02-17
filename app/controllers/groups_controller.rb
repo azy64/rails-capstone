@@ -1,6 +1,8 @@
 class GroupsController < ApplicationController
   load_and_authorize_resource
-  def index; end
+  def index
+    @groups = Group.all.includes(:user)
+  end
 
   def new
     @group = Group.new
@@ -22,9 +24,9 @@ class GroupsController < ApplicationController
     @group.user = current_user
     if @group.save
       flash[:success] = 'the group havs been saved successfully!'
-      redirect_to home_page_path
+      redirect_to groups_path
     else
-      flash[:error] = 'couldn\'t save the group!'
+      flash.now[:error] = 'couldn\'t save the group!'
       render :new
     end
   end

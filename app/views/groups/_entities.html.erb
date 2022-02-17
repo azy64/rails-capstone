@@ -1,18 +1,17 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Amount</th>
-      <!--<th colspan="3"></th>-->
-    </tr>
-  </thead>
 
-  <tbody>
+
    <% entities.each do |entity| %>
-      <tr>
-        <td><%=entity.name%></td>
-        <td><%= entity.amount, class: "small"%>€</td>
-      </tr>
+      <div class="container">
+        <div class="row bg-white m-2 p-2" style="box-shadow: 0 5px 14px gray">
+          <div class="col-3">
+            <%= image_tag "/uploads/".concat(icon.to_s), class: "img-responsive", size: 55%>
+          </div>
+          <div class="col-6 pt-3">
+            <span><%=entity.name%></span>
+          </div>
+          <div class="col-3 pt-3">
+            <span class="fw-bold fs-6 mt-5">€<%=entity.amount%></span>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>

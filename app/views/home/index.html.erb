@@ -1,9 +1,47 @@
-<%if flash[:success]%>
-<span class="alert-info"><%=flash[:success]%></span>
-<%end%>
-<div>
-<h1>Hello</h1>
-<%= render partial: 'group', locals: { groups: @groups } %>
-<%=link_to "add a new category", new_group_path, class: "btn btn-primary"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="grid-tunaweza col-tunaweza-2 container">
+    <div>
+        <div class="col-12 mt-5">
+            <div style="padding-top:35%">
+                <h1 class="display-2 fw-bolder text-center mt-5 align-bottom">Tunaweza-SEND</h1>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row-fluid" >
+         <div class="col-12 mt-5">
+            <div class="mt-2">
+                 <%=link_to "SIGN IN", user_session_path, class: "d-block btn btn-lg btn-primary"%>
+            </div>
+            <div class="mt-2">
+                <%=link_to "SIGN UP", new_user_registration_path, class: "d-block btn-lg btn btn-primary"%>
+            </div>
+            <% if current_user.present? %>
+              <div class="mt-2">
+                <%=link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "d-block btn-lg btn btn-primary"%>
+            </div>
+            <% end %>
+            
+        </div>
+    </div>
 </div>
+  </body>
+</html>
+
+
 

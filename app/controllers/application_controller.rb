@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_up_path_for(resource)
+    groups_path
+  end
+
   protected
 
   def configure_permitted_parameters

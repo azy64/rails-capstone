@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+/* @import "bootstrap"; */
+
+body {
+  background-color: #F1F3F2;
+}
+.grid-tunaweza {
+  display: grid !important;
+}
+
+.col-tunaweza-2 {
+  grid-template-rows: 90% 10% !important;
+  row-gap: 40px;
+}
+
+.menu-container {
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed !important;
+  background-color: blue !important;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+}

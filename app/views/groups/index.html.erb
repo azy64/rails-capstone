@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-2">
+  <div class="container-md bg-primary">
+    <div class="row p-3 w-100">
+      <div class="col-2">
+         <%= image_tag "menu.png", class: "img-responsive", size: 22%>
+      </div>
+       <div class="col-8 text-center">
+          <span class="navbar-brand text-white">GROUPS</span>
+       </div>
+        <div class="col-2"><span class="navbar-brand pe-2 text-white"> 
+           <%=link_to "LOG OUT", destroy_user_session_path, method: :delete,
+           class: "text-reset small text-decoration-none"%>
+        </span>
+        </div>
+    </div>
+  </div>
+</nav>
+<div>
+    <%if flash[:success]%>
+    <span class="alert-info"><%=flash[:success]%></span>
+    <%end%>
+    <div>
+        <%= render partial: 'home/group', locals: { groups: @groups } %>
+        <div class="ps-4">
+            <%=link_to "add a new category", new_group_path, class: "btn btn-primary"%>
+        </div>
+    </div>
+</div>
+

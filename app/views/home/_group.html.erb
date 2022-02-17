@@ -1,23 +1,21 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Icon</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% groups.each do |group| %>
-      <tr>
-        <td><%=link_to group.name, group_path(id: group.id) %></td>
-        <td><%= image_tag "/uploads/".concat(group.icon.to_s), class: "img-responsive", size: 60%></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <div class="container">
+        <div class="row bg-white m-2 p-2" style="box-shadow: 0 5px 14px gray">
+          <div class="col-3">
+            <%= image_tag "/uploads/".concat(group.icon.to_s), class: "img-responsive", size: 55%>
+          </div>
+          <div class="col-6 pt-3">
+            <%=link_to group.name, group_path(id: group.id),
+             class: "text-decoration-none fs-6 text-muted" %>
+          </div>
+          <div class="col-3 pt-3">
+          <% sum = 0%>
+          <%group.entities.each do |ent| %>
+          <%sum = sum + ent.amount%>
+          <%end%>
+            <span class="fw-bold fs-6 mt-5">€<%=sum%></span>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>

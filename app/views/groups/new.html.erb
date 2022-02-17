@@ -1,20 +1,35 @@
-<div class='form-container'>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary mb-2">
+  <div class="container-md bg-primary">
+    <div class="row p-3 w-100">
+      <div class="col-2">
+         <%=link_to '<', groups_path, class: "navbar-brand text-white" %>
+      </div>
+       <div class="col-8 text-center">
+          <span class="navbar-brand text-white">NEW CATEGORY</span>
+       </div>
+        <div class="col-2"><span class="navbar-brand pe-2 text-white"> </span></div>
+    </div>
+  </div>
+</nav>
+
+<div class='form-container bg-white p-2'>
 <% if flash[:error]%>
     <span class="alert-danger"><%= flash[:error]%> </span>
 <%end%>
 <%= form_with model:@group, url: groups_path, method: :post do |form|%>
 <div>
-    <%= form.label :name, class: "form-label" %><span class="text-danger">*</span>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.text_field :name, 
+    placeholder: "Name",
+    class: "form-control border-0 border-top fs-5" 
+    %>
 </div>
 <div>
-    <%= form.label :icon, class: "form-label" %><span class="text-danger">*</span>
-    <%= form.file_field :icon, class: "form-control" %>
+    <%= form.file_field :icon, 
+    placeholder: "Icon",
+    class: "form-control border-0 border-top fs-5" %>
 </div>
-<%= form.submit "Save"%>
+<div class="p-1 pt-3">
+<%= form.submit "Save", class: "btn btn-primary btn-lg form-control"%>
+</div>
 <% end %>
-<div>
-    <%=link_to "<", home_page_path, class: "btn btn-darger"%>
-</div>
-
 </div>
