@@ -8,6 +8,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'pg', '~> 1.3'
 gem 'rails', '~> 7.0.1'
+gem 'sass-rails'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -76,5 +77,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem "pg", "~> 1.3"
